@@ -23,15 +23,18 @@
   </tr>
 
   <% @the_user.own_photos.each do |an_image| %>
-  <tr>
-   <td>
-   <img src="<%= an_image.image%>">
-   </td>
-   <td><%= an_image.poster.username %></td>
-   <td><%= an_image.caption%></td>
-   <td><%= an_image.created_at%></td>
-   <td>Show Details</td>
-  </tr>
+    <tr>
+      <td>
+      <img src="<%= an_image.image%>">
+      </td>
+      <td><%= an_image.poster.username %> </td>
+      <td><%= an_image.caption %> </td>
+      <td><%= an_image.created_at %> </td>
+      <td><a href="/photos/<%= an_image.id %>">
+              Show Details
+          </a>
+      </td>
+    </tr>
   <% end %>
 
 </table>

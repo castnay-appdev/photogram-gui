@@ -6,4 +6,8 @@ Rails.application.routes.draw do
 
   get("/photos", { :controller => "photos", :action => "index"})
 
+  get("/photos/:path_photo", { :controller => "photos", :action => "photo_details" })
+
+  get("/delete_photo/:path_photo", { :controller => "photos", :action => "delete_photo" })
+
 end
