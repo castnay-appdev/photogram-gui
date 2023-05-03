@@ -23,4 +23,34 @@ class UsersController < ApplicationController
     end
   end
 
+  def new_user
+    #Parameters: {"input_username"=>"martha"}
+
+    username = params.fetch("input_username")
+    
+    new_username = User.new
+    new_username.username = username 
+
+    new_username.save
+    
+    redirect_to("/users/" + new_username.username.to_s)
+  end
+
+  def update_user
+    #  Parameters: {"input_username"=>"cristina", "user_id"=>"112"}
+
+    name_input = params.fetch("input_username")
+    the_id = params.fetch("user_id")
+
+    matching_users = User.where({ :id => the_id })
+    the_user = matching_users.first
+
+    the_user.username = name_input
+
+    the_user.save
+
+    redirect_to("/users/" + the_user.username.to_s)
+  end
+
+
 end
